@@ -1,0 +1,18 @@
+services:
+  espressif_dev:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: "frank75/esp8266_rtos:v6"
+    container_name: esp8266_rtos
+    environment:
+      - TZ=Europe/Warsaw
+    #  - IDF_PATH=/root/esp/ESP8266_RTOS_SDK
+    volumes:
+      - "./scripts_esp8266:/root/scripts"
+    stdin_open: true
+    tty: true
+    devices:
+    - /dev/ttyUSB0:/dev/ttyUSB0
+
+ 
